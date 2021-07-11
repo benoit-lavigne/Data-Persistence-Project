@@ -15,6 +15,10 @@ public class Brick : MonoBehaviour
     
     public int PointValue;
 
+    private void Awake()
+    {
+        onDestroyed = new MyIntEvent();
+    }
     void Start()
     {
         var renderer = GetComponentInChildren<Renderer>();
@@ -37,7 +41,7 @@ public class Brick : MonoBehaviour
         }
         renderer.SetPropertyBlock(block);
 
-        onDestroyed = new MyIntEvent();
+        
     }
 
     private void OnCollisionEnter(Collision other)
